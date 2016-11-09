@@ -3,6 +3,7 @@
 Authors are Jiawei Li and Qiaomin Ling
 
 The application offer ticket sale and anlaysis of movie reviews from twitter.
+
 The followings are our milestones:
 11.4 -  11.11 	 Data collection
 11.11- 11.20 	 Sentiment analysis of movie review 
