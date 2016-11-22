@@ -1,0 +1,75 @@
+New log file opened at Tue Nov 22 11:39:17 EST 2016 by 1594@qiaomindeMacBook-Pro.local
+Taking next connection to: 50669
+New client attempting to connect on port: 50670-50669
+  Address = /10.110.191.60:50669
+This client on port 50670 has uuid ced100d8-3594-4049-b8f6-5aa5d077c58b configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-ced100d8-3594-4049-b8f6-5aa5d077c58b
+Taking next connection to: 50669
+New client attempting to connect on port: 50671-50669
+  Address = /10.110.191.60:50669
+Handshake exception on socket: 50671
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 50669
+New client attempting to connect on port: 50672-50669
+  Address = /10.110.191.60:50669
+This client on port 50672 has uuid 91355e29-1950-4c3c-a538-c5101e5bb47e configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-ced100d8-3594-4049-b8f6-5aa5d077c58b, play-fork-run-91355e29-1950-4c3c-a538-c5101e5bb47e
+Taking next connection to: 50669
+New client attempting to connect on port: 50727-50669
+  Address = /10.110.191.60:50669
+Handshake exception on socket: 50727
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 50669
+New client attempting to connect on port: 50728-50669
+  Address = /10.110.191.60:50669
+This client on port 50728 has uuid e3858f9f-d502-47de-b3ab-0bf70238b55d configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-ced100d8-3594-4049-b8f6-5aa5d077c58b, play-fork-run-e3858f9f-d502-47de-b3ab-0bf70238b55d
+Taking next connection to: 50669
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50669
+New client attempting to connect on port: 50755-50669
+  Address = /10.110.191.60:50669
+Handshake exception on socket: 50755
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 50669
+New client attempting to connect on port: 50756-50669
+  Address = /10.110.191.60:50669
+This client on port 50756 has uuid f9d859a3-5f45-4cbb-9d14-308c2f9ca8e0 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-ced100d8-3594-4049-b8f6-5aa5d077c58b, play-fork-run-f9d859a3-5f45-4cbb-9d14-308c2f9ca8e0
+Taking next connection to: 50669
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50669
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50669
+Server socket closed java.net.SocketException: Socket closed
+Server socket thread exiting.
+2 clients open, will close them...
+All client sockets have been closed.
+Closing the 1594@qiaomindeMacBook-Pro.local logs at Tue Nov 22 12:01:19 EST 2016, goodbye.
