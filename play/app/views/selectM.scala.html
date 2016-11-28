@@ -1,0 +1,29 @@
+@(list: List[String])
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Select Movie</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <h2>this is the select movie page</h2>
+        <form action="choosemovie" method = get>
+
+            <br/><br/>
+        @for((moviem) <- list) {
+            <input type="radio" name="movieName" value=@moviem>  @moviem.replace("_"," ")
+
+            <br/>
+        }
+
+            <br/>
+
+            <input type="submit" value="choosemovie">
+        </form>
+    </body>
+</html>

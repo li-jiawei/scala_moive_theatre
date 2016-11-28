@@ -1,0 +1,31 @@
+@(movieName:String)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Search Movie</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+      <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+
+        this is movie main page
+        <br/>
+            <br/>
+            selected: <h2>@movieName</h2>
+
+            <form action="tweet" method = get>
+                <input type="hidden" name="movieName" value=@movieName>
+                <input type="submit" value="tweet">
+            </form>
+
+            <form action="ticket" method = get>
+                <input type="hidden" name="movieName" value=@movieName>
+                <input type="submit" value="ticket">
+            </form>
+
+
+    </body>
+</html>
