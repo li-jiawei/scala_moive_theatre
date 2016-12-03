@@ -1,4 +1,4 @@
-@(movieName: String)
+@(moviename: String, list: List[String])
 
 <!DOCTYPE html>
 
@@ -10,7 +10,21 @@
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        This is Ticket Angent
-        Movie name:  @movieName
+        Please Select A Show Time
+        <h2> Movie: @moviename </h2>
+            <form    action="buyticket" method = get>
+                <input type="hidden" name="moviename" value=@moviename>
+
+                <br/><br/>
+
+                @for(count <- list.size-4 to 0  by -4) {
+                    @*<input type="hidden" name="showtime" value=@list(count)>*@
+                    <input type="radio" name="movieid" value=@list(count+1)>  @list(count).replace("_"," ")
+                }
+
+                <br/>
+
+                <input type="submit" value="buy">
+            </form>
     </body>
 </html>

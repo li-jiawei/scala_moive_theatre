@@ -3,20 +3,21 @@
 # ~~~~
 
 # Home page
-GET  /                                     controllers.Application.index
+GET  /                          controllers.Application.index
 
 # Select page
-GET  /selectmovie                          controllers.SelectMovie.selectmovie
+GET  /selectmovie               controllers.SelectMovie.selectmovie
 
 # Search Movie
-GET  /searchmovie/:searchKey    controllers.SearchMovie.searchmovie(searchKey:String)
+GET  /lookuporder               controllers.LookUpOrder.lookuporder(orderid: String ?= "a")
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET  /assets/*file                         controllers.Assets.at(path="/public", file)
+GET  /assets/*file              controllers.Assets.at(path="/public", file)
 
 #choosemovie
-GET  /choosemovie             controllers.ChooseMovie.choosemovie(movieName: String ?= "a")
-GET  /tweet             controllers.Tweet.tweet(movieName: String ?= "a")
-GET  /ticket             controllers.Ticket.ticket(movieName: String ?= "a")
+GET  /choosemovie               controllers.ChooseMovie.choosemovie(movieName: String ?= "a")
+GET  /tweet                     controllers.Tweet.tweet(movieName: String ?= "a")
+GET  /ticket                    controllers.Ticket.ticket(movieName: String ?= "a")
 
+GET /buyticket                  controllers.BuyTicket.buyticket(movieid: String ?= "a",moviename: String ?= "a")

@@ -14,7 +14,10 @@
         <h2>Start of Movie Theatre</h2>
         <var id="moviename"  aria-valuetext="testname"></var>
         <a href="selectmovie">Select A Movie</a>
-        @*<a href="searchmovie/moviename">Search A Movie</a>*@
+        <form action="lookuporder" method="get">
+            <input type="text" name="orderid" >
+            <input type="submit" value="Look Up Order">
+        </form>
 
 
     </body>
