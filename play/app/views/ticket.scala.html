@@ -19,7 +19,7 @@
 
                 @for(count <- list.size-4 to 0  by -4) {
                     @*<input type="hidden" name="showtime" value=@list(count)>*@
-                    <input type="radio" name="movieid" value=@list(count+1)>  @list(count).replace("_"," ")
+                    <input type="radio" name="movieid" value=@list(count+1) checked >  @list(count).replace("_"," ")
                 }
 
                 <br/>
