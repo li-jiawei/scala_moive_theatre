@@ -31,18 +31,8 @@ class BuyTicket extends Controller {
       try {
 
         val statement = conn.createStatement()
-//        val queryShowtime = "SELECT showtime FROM timelist where movieid="+movieid+";"
-//        val showtime = statement.executeQuery(queryShowtime)
-//        showtime.next()
-//        val showT = showtime.getString(1)
 
-
-//        val showT="2016-01-01 12:00:00"
-//        val queryOrder = "INSERT INTO orderlist VALUES( "+movieid+", 'User', '"+ moviename+"','"+showT + "', "+orderid+");"
-//        val queryUpdate =  "UPDATE timelist SET remainticket =remainticket-1 WHERE movieid ="+movieid+";"
-
-
-        val queryOrder = "INSERT INTO orderlist1 VALUES( '"+orderid+"');"
+        val queryOrder = "INSERT INTO orderlist VALUES( '"+orderid+"');"
         val queryUpdate =  "UPDATE timelist SET remainticket =remainticket-1 WHERE movieid ="+movieid+";"
 
         statement.executeUpdate(queryUpdate)
