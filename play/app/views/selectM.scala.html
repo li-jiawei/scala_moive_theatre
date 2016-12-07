@@ -1,4 +1,4 @@
-@(list: List[String])
+@(list: Seq[String])
 
 <!DOCTYPE html>
 
@@ -16,8 +16,7 @@
 
             <br/><br/>
         @for((moviem) <- list) {
-            <input type="radio" name="movieName" value=@moviem>  @moviem.replace("_"," ")
-
+            <input type="radio" name="movieName" value=@moviem> @moviem
             <br/>
         }
 

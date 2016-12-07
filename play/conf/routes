@@ -9,7 +9,7 @@ GET  /                          controllers.Application.index
 GET  /selectmovie               controllers.SelectMovie.selectmovie
 
 # Search Movie
-GET  /lookuporder               controllers.LookUpOrder.lookuporder(orderid: String ?= "a")
+GET  /lookuporder               controllers.LookUpOrder.lookuporder(orderid: String)
 
 
 # Map static resources from the /public folder to the /assets URL path
@@ -20,4 +20,4 @@ GET  /choosemovie               controllers.ChooseMovie.choosemovie(movieName: S
 GET  /tweet                     controllers.Tweet.tweet(movieName: String ?= "a")
 GET  /ticket                    controllers.Ticket.ticket(movieName: String ?= "a")
 
-GET /buyticket                  controllers.BuyTicket.buyticket(movieid: String ?= "a",moviename: String ?= "a")
+GET /buyticket    controllers.BuyTicket.buyticket(moviename: String, sid:String)

@@ -1,4 +1,6 @@
-@(moviename: String, showtime:String)
+@import java.sql.Timestamp
+@(oid: String, movieName: String, showTime: Timestamp)
+@*//@(moviename: String, showtime:String)*@
 
 <!DOCTYPE html>
 
@@ -10,8 +12,22 @@
       <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        <h2>@moviename </h2>
-        <h3>@showtime</h3>
+        <table>
+            <tr>
+                <th>Order id</th>
+                <th>Moive name</th>
+                <th>Show time</th>
+            </tr>
+
+            <tr>
+                <td>@oid</td>
+                <td>@movieName</td>
+                <td>@showTime</td>
+            </tr>
+
+        </table>
+        @*<h2>@oid </h2>*@
+        @*<h3>@showtime</h3>*@
 
 
     </body>

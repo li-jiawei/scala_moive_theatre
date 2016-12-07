@@ -1,4 +1,5 @@
-@(moviename: String, list: List[String])
+@import java.sql.Timestamp
+@(moviename: String, sids: Seq[Int], showTimes: Seq[Timestamp])
 
 <!DOCTYPE html>
 
@@ -12,14 +13,13 @@
     <body>
         Please Select A Show Time
         <h2> Movie: @moviename </h2>
-            <form    action="buyticket" method = get>
+            <form    action="buyticket" method=get>
                 <input type="hidden" name="moviename" value=@moviename>
 
                 <br/><br/>
 
-                @for(count <- list.size-4 to 0  by -4) {
-                    @*<input type="hidden" name="showtime" value=@list(count)>*@
-                    <input type="radio" name="movieid" value=@list(count+1) checked >  @list(count).replace("_"," ")
+                @for((sid, showTime) <- (sids, showTimes).zipped) {
+                    <input type="radio" name="sid" value=@sid checked >  @showTime
                 }
 
                 <br/>
