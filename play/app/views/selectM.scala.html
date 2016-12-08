@@ -23,7 +23,7 @@
         @for((moviem) <- list) {
            <center>
                <input type="radio" name="movieName"  value=@moviem >
-               <font style="color: #f9d094"  >@moviem </font>
+               <font style="color: #f9d094" size="4" >@moviem.replace("_"," ") </font>
            </center>
             <br/>
         }
