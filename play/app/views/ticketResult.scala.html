@@ -5,17 +5,26 @@
 <html>
     <head>
         <title> Search Movie</title>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")"  />
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap-theme.min.css")"/>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.css")" />
+
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
       <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
-    <body>
-
+    <body style="background: #2e2a24">
+        <br/><br/>
+        <center>
+<font style="color: #f9d094">
         You Sucessfully Buy Ticket For
-        <h3>@moviename</h3>
+        <h2>@moviename.replace("_"," ")</h2>
+            <br/><br/>
         Please Remember Your Order Number：
-        <h3>@orderid</h3>
+        <h2>@orderid</h2>
         You can look up your order detail using Order Number
+</font>
+        </center>
 
     </body>
 </html>

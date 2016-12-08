@@ -41,7 +41,7 @@ class MovieDao @Inject() (dbProvider: DatabaseConfigProvider) {
 
   def buyTicket(sid: Int): Future[String] = {
     val uuid = java.util.UUID.randomUUID.toString
-    println(uuid)
+//    println(uuid)
     val updateTicketAmount = sqlu"""UPDATE shows SET remaining_ticket=(remaining_ticket - 1) WHERE sid=#$sid;"""
     val insertThisOrder = sqlu"""INSERT INTO orders(oid, sid) values ('#$uuid', #$sid);"""
 //    val GetOrderId = orders

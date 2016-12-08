@@ -5,24 +5,32 @@
 <html>
     <head>
         <title>Select Movie</title>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")"  />
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap-theme.min.css")"/>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.css")" />
+
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
-    <body>
+    <body style="background: #2e2a24">
+<br/>
+        <center><b><font size="8px"  style="color: #f9d094" >Select Movie</font></b></center>
 
-        <h2>this is the select movie page</h2>
         <form action="choosemovie" method = get>
 
-            <br/><br/>
+            <br/>
         @for((moviem) <- list) {
-            <input type="radio" name="movieName" value=@moviem> @moviem
+           <center>
+               <input type="radio" name="movieName"  value=@moviem >
+               <font style="color: #f9d094"  >@moviem </font>
+           </center>
             <br/>
         }
 
             <br/>
 
-            <input type="submit" value="choosemovie">
+            <center><input  class="btn btn-scalafp" type="submit" value="Select"></center>
         </form>
     </body>
 </html>
