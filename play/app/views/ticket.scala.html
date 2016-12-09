@@ -17,8 +17,8 @@
     <body style="background: #2e2a24">
         <center>
             <br/><br/>
-        <h4 style="color: #f9d094"> Selected Movie : </h4>
-        <h1 style="color: #f9d094">@moviename.replace("_"," ")</h1>
+            <h4 style="color: #f9d094"> Selected Movie : </h4>
+            <h1 style="color: #f9d094">@moviename.replace("_"," ")</h1>
             <form    action="buyticket" method=get>
                 <input type="hidden" name="moviename" value=@moviename>
 
@@ -27,7 +27,7 @@
                 @for((sid, showTime) <- (sids, showTimes).zipped) {
                     <input type="radio" name="sid" value=@sid checked >
                     <font style="color: #f9d094"  size="4" >@showTime.toString.replace(".0"," ")</font>
-                <br/>
+                    <br/>
                 }
 
                 <br/>

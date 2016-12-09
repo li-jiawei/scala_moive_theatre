@@ -4,6 +4,7 @@
 
 # Home page
 GET  /                          controllers.Application.index
+GET  /home                          controllers.Application.index
 
 # Select page
 GET  /selectmovie               controllers.SelectMovie.selectmovie
@@ -21,3 +22,11 @@ GET  /tweet                     controllers.Tweet.tweet(movieName: String ?= "a"
 GET  /ticket                    controllers.Ticket.ticket(movieName: String ?= "a")
 
 GET /buyticket    controllers.BuyTicket.buyticket(moviename: String, sid:String)
+
+GET /test3                                       controllers.Application.test3
+
+GET  /stop                                     controllers.Application.stop
+
+GET /test                                       controllers.Application.test
+
+GET /test2                                       controllers.Application.test2

@@ -11,14 +11,14 @@ import slick.driver.PostgresDriver.api._
 import model.Model._
 import play.api.Logger
 
-import scala.concurrent.Future
+import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 
-/**
-  * Created by Jiawei on 12/7/16.
-  */
+
 @Singleton
-class MovieDao @Inject() (dbProvider: DatabaseConfigProvider) {
+class MovieDao @Inject() (dbProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
+//class MovieDao @Inject() (db: Database) {
   val dbConfig = dbProvider.get[JdbcProfile]
 
 
@@ -35,6 +35,7 @@ class MovieDao @Inject() (dbProvider: DatabaseConfigProvider) {
           table.showTime > currentTime &&
           table.remainingTicket > 0)
         .map(table => (table.sid, table.showTime))
+        .sortBy(_._1)
         .result
     }
   }
@@ -46,14 +47,17 @@ class MovieDao @Inject() (dbProvider: DatabaseConfigProvider) {
     val insertThisOrder = sqlu"""INSERT INTO orders(oid, sid) values ('#$uuid', #$sid);"""
 //    val GetOrderId = orders
 //    println(updateTicketAmount.toString)
-    val composedAction = for {
-      u <- updateTicketAmount
-      i <- insertThisOrder
-    } yield i
+//    val composedAction = for {
+//      u <- updateTicketAmount
+//      i <- insertThisOrder
+//    } yield i
+//    val operation = dbConfig.db.run{
+//      composedAction.transactionally
+//    }
     val operation = dbConfig.db.run{
-      composedAction.transactionally
+      updateTicketAmount.andThen(insertThisOrder).transactionally
     }
-    operation.map(_ => uuid)
+    operation.map(oper => uuid)
   }
 
   def lookupOrder(orderId: String): Future[Seq[(String, String, Timestamp)]] = {
