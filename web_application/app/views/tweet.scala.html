@@ -1,0 +1,148 @@
+@(movieName: String)(implicit requestHeader: RequestHeader)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Tweet Result</title>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")"  />
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap-theme.min.css")"/>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.css")" />
+
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+
+    </head>
+    <body style="background: #FFFFFF" >
+
+        <table align="center" width="300" >  @* width="100" *@
+
+            <tr>
+                <td align="center" >
+                    <h1 style="color: #f9d094">@movieName.replace("_"," ")</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <form action="ticket" method = get>
+                        <input type="hidden" name="movieName" value=@movieName >
+                        <input type="submit" value="Buy Ticket" class="btn btn-warning" >
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <canvas id="barchart" > </canvas>
+                </td>
+            </tr>
+        </table>
+
+            <script>
+                    var ctx = document.getElementById("barchart");
+                    ctx.height = 400; ctx.weight = 500;
+
+                    var myChart = new Chart(ctx, {
+                        type : 'bar',
+                        data : {
+
+                            labels : [ "Score 1","Score 2","Score 3","Score 4","Score 5"],
+                            datasets : [ {
+                                label: 'Amount',
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                fillColor: '#FFF68F',
+                                strokeColor: '#FFF68F',
+                                pointColor: '#FFF68F',
+                                data : [0, 0, 0, 0, 0],
+                                borderWidth : 1
+                            } ]  },
+                        options : {scales : {yAxes : [ {ticks : {beginAtZero : true}} ]}}});
+
+                    var url = "@routes.Application.requestStreaming().webSocketURL()";
+                    var jsonSocket = new WebSocket(url);
+
+
+                    // the handler called when a message is received;
+                    jsonSocket.onmessage = function(event) {
+                        console.log(event.data);
+                        var data = JSON.parse(event.data);
+
+                        myChart.data.datasets[0].data = [data.zero, data.one, data.two, data.three, data.four]
+                        myChart.update()
+
+
+
+
+//                        var tweet = document.createElement("p")
+//                        var text = document.createTextNode(data.text)
+//                        tweet.appendChild(text)
+//                        document.getElementById("tweets").appendChild(tweet);
+                    };
+
+                    // The handler called when the connection is opened
+                    jsonSocket.onopen = function() {
+                        console.log("client websocket opened")
+                        // sends subscription request to the server
+//                jsonSocket.send("subscribe");
+                        @*var url = "@routes.Application4.tweets().webSocketURL()";*@
+                    }
+
+
+
+
+                    @*var ctx = document.getElementById("barchart");*@
+                    @*ctx.height = 400; ctx.weight = 500;*@
+
+                    @*var myChart = new Chart(ctx, {*@
+                        @*type : 'bar',*@
+                        @*data : {*@
+
+                            @*labels : [ "Score 1","Score 2","Score 3","Score 4","Score 5"],*@
+                            @*datasets : [ {*@
+                                @*label: 'Amount',*@
+                                @*backgroundColor: [*@
+                                    @*'rgba(255, 99, 132, 0.2)',*@
+                                    @*'rgba(54, 162, 235, 0.2)',*@
+                                    @*'rgba(75, 192, 192, 0.2)',*@
+                                    @*'rgba(153, 102, 255, 0.2)',*@
+                                    @*'rgba(255, 159, 64, 0.2)'*@
+                                @*],*@
+                                @*borderColor: [*@
+                                    @*'rgba(255,99,132,1)',*@
+                                    @*'rgba(54, 162, 235, 1)',*@
+                                    @*'rgba(75, 192, 192, 1)',*@
+                                    @*'rgba(153, 102, 255, 1)',*@
+                                    @*'rgba(255, 159, 64, 1)'*@
+                                @*],*@
+                                @*fillColor: '#FFF68F',*@
+                                @*strokeColor: '#FFF68F',*@
+                                @*pointColor: '#FFF68F',*@
+                                @*data : [ @num1,@num2,@num3,@num4,@num5],*@
+                                @*borderWidth : 1*@
+                            @*} ]  },*@
+                        @*options : {scales : {yAxes : [ {ticks : {beginAtZero : true}} ]}}});*@
+            </script>
+
+    </body>
+</html>

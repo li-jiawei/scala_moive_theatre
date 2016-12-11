@@ -1,0 +1,39 @@
+@import java.sql.Timestamp
+@(moviename: String, sids: Seq[Int], showTimes: Seq[Timestamp])
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Ticket Angent</title>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")"  />
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap-theme.min.css")"/>
+        <link rel="stylesheet" type="text/css"  href="@routes.Assets.at("bootstrap/css/bootstrap.css")" />
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body style="background: #2e2a24">
+        <center>
+            <br/><br/>
+            <h4 style="color: #f9d094"> Selected Movie : </h4>
+            <h1 style="color: #f9d094">@moviename.replace("_"," ")</h1>
+            <form    action="buyticket" method=get>
+                <input type="hidden" name="moviename" value=@moviename>
+
+                <br/><br/>
+
+                @for((sid, showTime) <- (sids, showTimes).zipped) {
+                    <input type="radio" name="sid" value=@sid checked >
+                    <font style="color: #f9d094"  size="4" >@showTime.toString.replace(".0"," ")</font>
+                    <br/>
+                }
+
+                <br/>
+
+                <input type="submit" value="buy" class="btn btn-scalafp ">
+            </form>
+        </center>
+    </body>
+</html>
