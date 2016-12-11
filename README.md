@@ -1,12 +1,18 @@
 # scala_moive_theatre 
-Our final project in 2016 Fall CSYE7200 Big Data System Using Scala
-Authors are Jiawei Li and Qiaomin Ling
-Our Professor is Dr. Robin Hillyard 
+Our final project in 2016 Fall CSYE7200 Big Data System Using Scala.
+
+Authors are Jiawei Li and Qiaomin Ling.
+
+Our Professor is Dr. Robin Hillyard.
 
 Project Description
+
 	Two part
+
 		a. Ticket sale
+		
 		b. Movie review sentiment analysis
+
 For more details, please go through our final-presentation.
 
 
